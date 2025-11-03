@@ -6,7 +6,7 @@
 - Uruchomin projekt `npm run dev`
 - Wpisać w przeglądarce adres `https://localhost:3000/`
 
-# Testy UI
+# Testy
 
 ## Test wypożyczenia (brak egzemplarzy)
 
