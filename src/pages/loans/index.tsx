@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type Loan = {
@@ -40,7 +41,8 @@ export default function LoansPage() {
     <div style={{ padding: 20 }}>
       <h1>Wypożyczenia</h1>
       <nav>
-        <a href="/books">📚 Książki</a> | <a href="/members">👥 Czytelnicy</a>
+        <Link href="/books">📚 Książki</Link> |{" "}
+        <Link href="/members">👥 Czytelnicy</Link>
       </nav>
       <table border={1} style={{ marginTop: 10, width: "100%" }}>
         <thead>

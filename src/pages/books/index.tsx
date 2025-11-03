@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 type Book = {
@@ -49,9 +50,9 @@ export default function BooksPage() {
     <div style={{ padding: 20 }}>
       <h1>Książki</h1>
       <nav>
-        <a href="/books/new">➕ Dodaj książkę</a> |{" "}
-        <a href="/members">👥 Czytelnicy</a> |{" "}
-        <a href="/loans">📚 Wypożyczenia</a>
+        <Link href="/books/new">➕ Dodaj książkę</Link> |{" "}
+        <Link href="/members">👥 Czytelnicy</Link> |{" "}
+        <Link href="/loans">📚 Wypożyczenia</Link>
       </nav>
       <table style={{ width: "100%", marginTop: 10 }} border={1}>
         <thead>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type Member = { id: number; name: string; email: string };
@@ -18,8 +19,8 @@ export default function Members() {
     <div style={{ padding: 20 }}>
       <h1>Czytelnicy</h1>
       <nav>
-        <a href="/books">📚 Książki</a> |{" "}
-        <a href="/members/new">➕ Dodaj czytelnika</a>
+        <Link href="/books">📚 Książki</Link> |{" "}
+        <Link href="/members/new">➕ Dodaj czytelnika</Link>
       </nav>
       <table border={1} style={{ marginTop: 10 }}>
         <thead>
