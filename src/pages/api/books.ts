@@ -1,14 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../lib/prisma";
 
-// GET: list books with available count
-// POST: create book
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
   if (req.method === "GET") {
-    // liczba dostępnych = copies - active loans
     const books = await prisma.book.findMany({ include: { loans: true } });
     const mapped = books.map((b) => {
       const activeLoans = b.loans.filter((l) => l.returnDate === null).length;
