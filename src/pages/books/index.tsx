@@ -47,44 +47,57 @@ export default function BooksPage() {
   }
 
   return (
-    <div style={{ padding: 20 }}>
-      <h1>Książki</h1>
-      <nav>
-        <Link href="/books/new">➕ Dodaj książkę</Link> |{" "}
-        <Link href="/members">👥 Czytelnicy</Link> |{" "}
-        <Link href="/loans">📚 Wypożyczenia</Link>
-      </nav>
-      <table style={{ width: "100%", marginTop: 10 }} border={1}>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Tytuł</th>
-            <th>Autor</th>
-            <th>Egz.</th>
-            <th>Dostępne</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {books.map((b) => (
-            <tr key={b.id}>
-              <td>{b.id}</td>
-              <td>{b.title}</td>
-              <td>{b.author}</td>
-              <td>{b.copies}</td>
-              <td>{b.available}</td>
-              <td>
-                <button
-                  onClick={() => borrow(b.id)}
-                  disabled={b.available <= 0}
-                >
-                  Wypożycz
-                </button>
-              </td>
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl font-bold text-gray-900">Książki</h1>
+        <Link
+          href="/books/new"
+          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+        >
+          ➕ Dodaj książkę
+        </Link>
+      </div>
+
+      <div className="bg-white shadow overflow-hidden rounded-lg border border-gray-200">
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-gray-50">
+            <tr>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tytuł</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Autor</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Egz.</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Dostępne</th>
+              <th className="relative px-6 py-3">
+                <span className="sr-only">Akcje</span>
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            {books.map((b) => (
+              <tr key={b.id} className="hover:bg-gray-50">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{b.id}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{b.title}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{b.author}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{b.copies}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${b.available > 0 ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}>
+                    {b.available}
+                  </span>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <button
+                    onClick={() => borrow(b.id)}
+                    disabled={b.available <= 0}
+                    className="text-blue-600 hover:text-blue-900 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Wypożycz
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
