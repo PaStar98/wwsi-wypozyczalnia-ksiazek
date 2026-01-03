@@ -54,7 +54,7 @@ export default function BooksPage() {
           href="/books/new"
           className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
         >
-          ➕ Dodaj książkę
+          Dodaj książkę
         </Link>
       </div>
 
@@ -62,11 +62,21 @@ export default function BooksPage() {
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tytuł</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Autor</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Egz.</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Dostępne</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                ID
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Tytuł
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Autor
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Egz.
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Dostępne
+              </th>
               <th className="relative px-6 py-3">
                 <span className="sr-only">Akcje</span>
               </th>
@@ -75,12 +85,22 @@ export default function BooksPage() {
           <tbody className="bg-white divide-y divide-gray-200">
             {books.map((b) => (
               <tr key={b.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{b.id}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{b.title}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{b.author}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{b.copies}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${b.available > 0 ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}>
+                  {b.id}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  {b.title}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {b.author}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {b.copies}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <span
+                    className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${b.available > 0 ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}
+                  >
                     {b.available}
                   </span>
                 </td>
